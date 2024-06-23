@@ -42,13 +42,13 @@ sudo apt-get install -y thefuck
 # Add plugins in zsh config file
 
 cd ~
-sed -i "74s/plugins=(git)/plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting web-search)" ~/.zshrc
+sh -c sed -i "74s/plugins=(git)/plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting web-search)" ~/.zshrc
 echo "alias mistake='thefuck'" >> ~/.zshrc
 source ~/.zshrc
 
 # Modify zsh theme
 
-sed -i "11s/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"" ~/.zshrc
+sh -c sed -i "11s/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"" ~/.zshrc
 
 
 ############################### SOFTWARES AND BROWSERS DOWNLOADS ################################################
@@ -110,7 +110,7 @@ exit 0
 sudo mv pwsh.zsh /bin/
 
 echo "alias pwsh='pwsh.zsh'" >> ~/.zshrc
-source ~/.zshrc
+zsh -c source ~/.zshrc
 
 
 # Install Virtualbox
