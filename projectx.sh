@@ -62,7 +62,7 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] http
 
 sudo apt-get update
 
-sudo apt-get install brave-browser
+sudo apt-get install -y brave-browser
 
 
 # Install Librewolf
