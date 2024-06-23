@@ -7,6 +7,7 @@
 
 sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install -y git			\
+			alien			\
 			perl			\
 			make			\
 			gcc			\
