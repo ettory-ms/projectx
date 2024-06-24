@@ -42,13 +42,13 @@ sudo apt-get install -y thefuck
 # Add plugins in zsh config file
 
 cd ~
-sh -c sed -i "74s/plugins=(git)/plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting web-search)" ~/.zshrc
+sed -i "74cplugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting web-search)" ~/.zshrc
 echo "alias mistake='thefuck'" >> ~/.zshrc
 source ~/.zshrc
 
 # Modify zsh theme
 
-sh -c sed -i "11s/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"" ~/.zshrc
+sed -i "11cZSH_THEME="bira"" ~/.zshrc
 
 
 ############################### SOFTWARES AND BROWSERS DOWNLOADS ################################################
