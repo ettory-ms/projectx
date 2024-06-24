@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
-######################## Z SHELL DOWNLOAD ######################################
-
-# Installation zsh dependencies
+############################## BASIC PACKAGES INSTALLATION ##############################
 
 sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install -y git			\
@@ -14,46 +11,14 @@ sudo apt-get install -y git			\
 			g++			\
 			curl			\
 			wget			\
-			powerline		\
-			fonts-powerline	
-
-sudo mkdir /usr/local/bin/powerline
-sudo git clone https://github.com/powerline/powerline.git /usr/local/bin/powerline/
-sudo wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf -O /usr/share/fonts/PowerlineSymbols.otf
-sudo wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf -O /etc/fonts/conf.d/10-powerline-symbols.conf
-sudo echo './usr/local/bin/powerline/powerline/bindings/bash/powerline.sh' >> ~/.bashrc
-
-sudo apt-get install zsh
-
-# Installation oh-my-zsh
-
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
-sleep 2
-echo $SHELL	# Verify if zsh is the default shell for the user
-sudo chsh --shell /bin/zsh $(whoami) # define default shell for the current user logged in session
-
-# Installing useful plugins for zsh
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-sudo apt-get install -y thefuck
-
-# Add plugins in zsh config file
-
-cd ~
-sed -i "74cplugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting web-search)" ~/.zshrc
-echo "alias mistake='thefuck'" >> ~/.zshrc
-source ~/.zshrc
-
-# Modify zsh theme
-
-sed -i "11cZSH_THEME="bira"" ~/.zshrc
-
+   			python3		
+      
 
 ############################### SOFTWARES AND BROWSERS DOWNLOADS ################################################
 
 # Install Brave
+
+echo "######################### Start Brave Browser Installation #########################"
 
 sudo apt-get install -y curl
 
@@ -67,6 +32,8 @@ sudo apt-get install -y brave-browser
 
 
 # Install Librewolf
+
+echo "######################### Start Librewolf Browser Installation #########################"
 
 sudo apt-get update && sudo apt-get install -y wget gnupg lsb-release apt-transport-https ca-certificates
 
@@ -90,6 +57,8 @@ sudo apt-get install librewolf -y
 
 # Install Powershell
 
+echo "######################### Start Powershell Installation #########################"
+
 cd ~/Downloads
 sudo apt-get -y update
 sudo apt-get install -y wget
@@ -97,23 +66,10 @@ wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershel
 sudo dpkg -i powershell_7.4.3-1.deb_amd64.deb
 sudo apt-get install -f -y
 rm powershell_7.4.3-1.deb_amd64.deb
-touch pwsh.zsh
-
-echo "#!/bin/zsh
-
-bash &
-sleep 1
-bash -c pwsh
-exit 0
-" >> pwsh.zsh
-
-sudo mv pwsh.zsh /bin/
-
-echo "alias pwsh='pwsh.zsh'" >> ~/.zshrc
-zsh -c source ~/.zshrc
-
 
 # Install Virtualbox
+
+echo "############################## Start Virtualbox Installation ##############################"
 
 cd ~
 wget https://download.virtualbox.org/virtualbox/7.0.18/virtualbox-7.0_7.0.18-162988~Debian~bookworm_amd64.deb
@@ -123,15 +79,16 @@ sudo apt-get install -f -y
 
 # Install and Configure Kitty Terminal
 
+echo "############################## Start Kitty Installation ##############################"
+
+
 sudo apt-get install -y kitty
 
 cd ~/Downloads/
 git clone https://github.com/ettory-ms/kitty-config.git
-cd kitty-config
-mv kitty.conf ~/.config/kitty/
 
-echo "Restart your Kitty if he's open!!!"
-echo "Enjoy your Debian based distro! ;)"
+echo "ATTENTION!!! Your Kitty Terminal file config are in ~/Downloads"
+echo "Enjoy ProjectX! ;)"
 
 
 
